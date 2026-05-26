@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fafafa;
+  color: #111111;
+  font-family: 'Heebo', sans-serif;
+  direction: rtl;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #FF6B9E;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Frank Ruhl Libre', serif;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.serif {
+  font-family: 'Frank Ruhl Libre', serif;
+}
+
+/* Minimalist scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+
+/* Typography utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.minimal-border {
+  border: 1px solid #e5e5e5;
+}
+
+.minimal-border-b {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.minimal-border-t {
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Fade in up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Brand Colors */
+.text-brand-pink { color: #FF6B9E; }
+.text-brand-blue { color: #5CE1E6; }
+.bg-brand-pink { background-color: #FF6B9E; }
+.bg-brand-blue { background-color: #5CE1E6; }
+.border-brand-pink { border-color: #FF6B9E; }
+.border-brand-blue { border-color: #5CE1E6; }
+
+.gradient-brand {
+  background: linear-gradient(135deg, #D84A7F, #00A3C4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
