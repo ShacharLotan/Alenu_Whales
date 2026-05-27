@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: 'Upload “{{path}}”'
+    deleteMedia: 'Delete “{{path}}”'
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "content"
+    label: "תוכן האתר"
+    files:
+      - file: "src/content/data.json"
+        label: "דף הבית - דוגמאות ומתודולוגיה"
+        name: "homepage"
+        fields:
+          - {label: "כותרת ראשית", name: "heroTitle", widget: "string"}
+          - {label: "כותרת משנה", name: "heroSubtitle", widget: "text"}
+          - label: "מקרי בוחן"
+            name: "examples"
+            widget: "list"
+            fields:
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "הסטטוס קוו", name: "statusQuo", widget: "text"}
+              - {label: "הלוויתן", name: "whale", widget: "text"}
+              - {label: "הפתרון", name: "solution", widget: "text"}
+              - {label: "גרף (אופציונלי - חינוך/תחבורה/ביטחון)", name: "chart", widget: "string", required: false}
+          - label: "לוויתני עבר"
+            name: "pastWhales"
+            widget: "list"
+            fields:
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "תיאור", name: "desc", widget: "text"}

@@ -21,13 +21,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: 'Heebo', sans-serif;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 .serif {
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: 'Heebo', sans-serif;
 }
 
 /* Minimalist scrollbar */
@@ -56,6 +56,43 @@ h1, h2, h3, h4, h5, h6 {
 
 .minimal-border-t {
   border-top: 1px solid #e5e5e5;
+}
+
+/* Magazine Layout Styles */
+.magazine-container {
+  max-w-2xl;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drop-cap::first-letter {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #111;
+  float: right;
+  line-height: 1;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.marginalia {
+  position: absolute;
+  right: -250px;
+  width: 200px;
+  font-size: 13px;
+  color: #666;
+  border-right: 2px solid #5CE1E6;
+  padding-right: 12px;
+}
+
+@media (max-width: 1024px) {
+  .marginalia {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-right: 2px solid #5CE1E6;
+    padding-right: 12px;
+  }
 }
 
 /* Fade in up */
