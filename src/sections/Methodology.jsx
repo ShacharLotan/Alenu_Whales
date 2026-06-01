@@ -5,63 +5,75 @@ export default function Methodology() {
   const { priceOfStatusQuo, whatIsWhale, howToIdentify, howToHunt } = data.methodology;
 
   return (
-    <section id="methodology" className="py-20 px-6 minimal-border-t bg-white relative">
-      <div className="magazine-container relative">
-        <div className="marginalia top-0 hidden lg:block">
-          <strong>המתודולוגיה</strong>
-          <p className="mt-2 text-sm">הבסיס הרעיוני שמגדיר מהו שינוי מבני ואיך להבדיל בינו לבין קוסמטיקה פוליטית.</p>
+    <section id="methodology" className="py-24 px-6 section-light minimal-border-t">
+      <div className="magazine-col">
+
+        {/* Whale illustration */}
+        <div className="flex justify-center mb-20 fade-in-up">
+          <img src="/whale.png" alt="Whale Tail" className="h-40 md:h-56 opacity-85 mix-blend-multiply" />
         </div>
 
-        <div className="flex justify-center mb-16 fade-in-up">
-          <img src="/whale.png" alt="Whale Tail" className="h-48 md:h-64 opacity-90 mix-blend-multiply" />
-        </div>
-        
-        <div className="mb-20 fade-in-up">
-          <h2 className="text-3xl font-bold text-[#111] mb-6 serif">{priceOfStatusQuo.title}</h2>
-          <div className="space-y-6 text-[18px] text-[#444] leading-relaxed">
+        {/* Price of Status Quo */}
+        <div className="mb-24 fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-black text-[#1a1a1a] mb-8">{priceOfStatusQuo.title}</h2>
+          <div className="space-y-6 text-[17px] md:text-[18px] text-[#444] leading-[1.8]">
             {priceOfStatusQuo.paragraphs.map((p, i) => (
               <p key={i} className={i === 0 ? "drop-cap" : ""}>{p}</p>
             ))}
           </div>
         </div>
 
-        <div className="mb-20 fade-in-up">
-          <h2 className="text-3xl font-bold text-[#111] mb-6 serif">{whatIsWhale.title}</h2>
-          <div className="space-y-6 text-[18px] text-[#444] leading-relaxed">
+        <div className="section-rule mb-24"></div>
+
+        {/* What is a Whale */}
+        <div className="mb-24 fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-black text-[#1a1a1a] mb-8">{whatIsWhale.title}</h2>
+          <div className="space-y-6 text-[17px] md:text-[18px] text-[#444] leading-[1.8]">
             {whatIsWhale.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
+
+          {/* Pull quote */}
+          <div className="pull-quote my-12">
+            ככל שהמחיר הפוליטי גבוה יותר, כך גדל הסיכוי שמדובר במהלך חיוני.
+          </div>
         </div>
 
-        <div className="mb-20 p-8 bg-[#fafafa] minimal-border fade-in-up">
-          <h3 className="text-2xl font-bold text-[#111] mb-8 serif">{howToIdentify.title}</h3>
-          <div className="space-y-8">
+        <div className="section-rule mb-24"></div>
+
+        {/* How to identify */}
+        <div className="mb-24 fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-black text-[#1a1a1a] mb-10">{howToIdentify.title}</h2>
+          <div className="space-y-0">
             {howToIdentify.points.map((item, i) => (
-              <div key={i} className="flex gap-6">
-                <span className="text-2xl font-black text-[#ccc] serif">0{i + 1}</span>
+              <div key={i} className="flex gap-5 py-6 border-b border-[#eee] last:border-b-0">
+                <span className="text-3xl font-black text-[#e0e0e0] leading-none mt-1 shrink-0 w-10 text-center">{i + 1}</span>
                 <div>
-                  <h4 className="text-[17px] font-bold text-[#111] mb-2">{item.title}</h4>
-                  <p className="text-[16px] text-[#555] leading-relaxed">{item.desc}</p>
+                  <h4 className="text-[17px] font-bold text-[#1a1a1a] mb-1">{item.title}</h4>
+                  <p className="text-[16px] text-[#666] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
+        <div className="section-rule mb-24"></div>
+
+        {/* How to hunt */}
         <div className="fade-in-up">
-          <h2 className="text-3xl font-bold text-[#111] mb-6 serif">{howToHunt.title}</h2>
-          <div className="space-y-6 text-[18px] text-[#444] leading-relaxed">
-            <ul className="list-none space-y-5">
-              {howToHunt.points.map((item, i) => (
-                <li key={i} className="flex gap-4">
-                  <span className="text-brand-pink font-bold">—</span> 
-                  <span><strong>{item.title}:</strong> {item.desc}</span>
-                </li>
-              ))}
-            </ul>
+          <h2 className="text-3xl md:text-4xl font-black text-[#1a1a1a] mb-10">{howToHunt.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {howToHunt.points.map((item, i) => (
+              <div key={i} className="p-6 bg-[#fafafa] border border-[#eee] rounded-md">
+                <div className="text-[#FF6B9E] font-black text-sm mb-3">שלב {i + 1}</div>
+                <h4 className="text-[16px] font-bold text-[#1a1a1a] mb-2">{item.title}</h4>
+                <p className="text-[15px] text-[#666] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
+
       </div>
     </section>
   );

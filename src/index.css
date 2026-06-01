@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =============================================
+   BASE & RESET
+   ============================================= */
 
 html {
   scroll-behavior: smooth;
@@ -8,11 +12,13 @@ html {
 
 body {
   background: #fafafa;
-  color: #111111;
+  color: #1a1a1a;
   font-family: 'Heebo', sans-serif;
   direction: rtl;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 ::selection {
@@ -20,14 +26,15 @@ body {
   color: #ffffff;
 }
 
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Heebo', sans-serif;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
-}
-
-.serif {
-  font-family: 'Heebo', sans-serif;
+  font-weight: 800;
 }
 
 /* Minimalist scrollbar */
@@ -39,12 +46,66 @@ h1, h2, h3, h4, h5, h6 {
 }
 ::-webkit-scrollbar-thumb {
   background: #cccccc;
+  border-radius: 2px;
 }
 
-/* Typography utilities */
-.text-balance {
-  text-wrap: balance;
+/* =============================================
+   MAGAZINE LAYOUT
+   ============================================= */
+
+/* Main reading column - optimal ~65 chars per line */
+.magazine-col {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* Wider container for charts and cards */
+.magazine-wide {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =============================================
+   EDITORIAL ELEMENTS
+   ============================================= */
+
+/* Drop cap - first letter */
+.drop-cap::first-letter {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  float: right;
+  line-height: 0.85;
+  margin-left: 0.6rem;
+  margin-top: 0.35rem;
+  padding-bottom: 0.1rem;
+}
+
+/* Pull quote */
+.pull-quote {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  border-right: 4px solid #FF6B9E;
+  padding-right: 1.25rem;
+  margin: 2.5rem 0;
+  line-height: 1.5;
+}
+
+/* Sidenote (marginalia) - shown on wide screens beside text */
+.sidenote {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+  border-right: 2px solid #e0e0e0;
+  padding-right: 12px;
+}
+
+/* =============================================
+   BORDERS & DIVIDERS
+   ============================================= */
 
 .minimal-border {
   border: 1px solid #e5e5e5;
@@ -58,54 +119,17 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid #e5e5e5;
 }
 
-/* Magazine Layout Styles */
-.magazine-container {
-  max-w-2xl;
-  margin-left: auto;
-  margin-right: auto;
+.section-rule {
+  width: 60px;
+  height: 1px;
+  background: #d0d0d0;
+  margin: 0 auto;
 }
 
-.drop-cap::first-letter {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: #111;
-  float: right;
-  line-height: 1;
-  margin-left: 0.5rem;
-  margin-top: 0.2rem;
-}
+/* =============================================
+   BRAND COLORS (Aleinu palette)
+   ============================================= */
 
-.marginalia {
-  position: absolute;
-  right: -250px;
-  width: 200px;
-  font-size: 13px;
-  color: #666;
-  border-right: 2px solid #5CE1E6;
-  padding-right: 12px;
-}
-
-@media (max-width: 1024px) {
-  .marginalia {
-    position: static;
-    width: 100%;
-    margin-bottom: 1rem;
-    border-right: 2px solid #5CE1E6;
-    padding-right: 12px;
-  }
-}
-
-/* Fade in up */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Brand Colors */
 .text-brand-pink { color: #FF6B9E; }
 .text-brand-blue { color: #5CE1E6; }
 .bg-brand-pink { background-color: #FF6B9E; }
@@ -114,7 +138,91 @@ h1, h2, h3, h4, h5, h6 {
 .border-brand-blue { border-color: #5CE1E6; }
 
 .gradient-brand {
-  background: linear-gradient(135deg, #D84A7F, #00A3C4);
+  background: linear-gradient(135deg, #C73E6E, #0090A8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered entrance for lists */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* =============================================
+   SECTION BACKGROUNDS
+   ============================================= */
+
+.section-light {
+  background: #ffffff;
+}
+
+.section-cream {
+  background: #fafafa;
+}
+
+.section-dark {
+  background: #111111;
+  color: #f0f0f0;
+}
+
+/* =============================================
+   CARD STYLES (for examples)
+   ============================================= */
+
+.whale-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whale-card:hover {
+  border-color: #d0d0d0;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* Status tags */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+}
+
+.tag-neutral { background: #f0f0f0; color: #666; }
+.tag-pink { background: #fff0f5; color: #D84A7F; }
+.tag-blue { background: #f0fcfe; color: #0090A8; }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .drop-cap::first-letter {
+    font-size: 2.8rem;
+  }
+
+  .pull-quote {
+    font-size: 1.2rem;
+  }
 }
