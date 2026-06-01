@@ -1,4 +1,5 @@
 import React from 'react';
+import ExpandableSection from '../components/ExpandableSection';
 import data from '../content/data.json';
 
 export default function PastWhales() {
@@ -26,6 +27,16 @@ export default function PastWhales() {
               <p className="text-[#999] text-[17px] leading-[1.8] mr-14">
                 {whale.desc}
               </p>
+              
+              <div className="mr-14">
+                {whale.expanded && (
+                  <ExpandableSection 
+                    title={whale.expanded.title} 
+                    content={whale.expanded.content} 
+                    theme="dark" 
+                  />
+                )}
+              </div>
             </div>
           ))}
         </div>

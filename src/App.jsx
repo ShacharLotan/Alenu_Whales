@@ -2,8 +2,11 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import Methodology from './sections/Methodology';
-import Examples from './sections/Examples';
 import PastWhales from './sections/PastWhales';
+import Examples from './sections/Examples';
+import Geopolitics from './sections/Geopolitics';
+import HebrewSovereignty from './sections/HebrewSovereignty';
+import SiliconDome from './sections/SiliconDome';
 import Footer from './sections/Footer';
 import ProgressBar from './components/ProgressBar';
 
@@ -23,6 +26,15 @@ export default function App() {
       </div>
       <div id="examples">
         <Examples />
+      </div>
+      <div id="geopolitics">
+        <Geopolitics />
+      </div>
+      <div id="hebrew-sovereignty">
+        <HebrewSovereignty />
+      </div>
+      <div id="silicon-dome">
+        <SiliconDome />
       </div>
       <Footer />
     </div>

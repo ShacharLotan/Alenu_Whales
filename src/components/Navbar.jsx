@@ -18,7 +18,7 @@ export default function Navbar() {
         </a>
         
         {/* Desktop nav */}
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="hidden xl:flex gap-6 items-center">
           <a href="#methodology" className="text-[14px] font-medium text-[#666] hover:text-[#1a1a1a] transition-colors">
             המתודולוגיה
           </a>
@@ -28,14 +28,23 @@ export default function Navbar() {
           <a href="#examples" className="text-[14px] font-medium text-[#666] hover:text-[#1a1a1a] transition-colors">
             הלוויתנים
           </a>
-          <a href="#join" className="text-[13px] font-bold text-[#fafafa] bg-[#1a1a1a] px-5 py-2.5 rounded hover:bg-[#333] transition-colors">
-            הצטרפו למאמץ
+          <a href="#geopolitics" className="text-[14px] font-medium text-[#666] hover:text-[#1a1a1a] transition-colors">
+            גיאופוליטיקה
+          </a>
+          <a href="#hebrew-sovereignty" className="text-[14px] font-medium text-[#666] hover:text-[#1a1a1a] transition-colors">
+            ריבונות עברית
+          </a>
+          <a href="#silicon-dome" className="text-[14px] font-medium text-[#666] hover:text-[#1a1a1a] transition-colors">
+            כיפת הסיליקון
+          </a>
+          <a href="#join" className="text-[13px] font-bold text-[#fafafa] bg-[#1a1a1a] px-5 py-2.5 rounded hover:bg-[#333] transition-colors ml-4">
+            הצטרפו
           </a>
         </div>
 
         {/* Mobile hamburger */}
         <button 
-          className="md:hidden p-2"
+          className="xl:hidden p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="תפריט"
         >
@@ -49,10 +58,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#fafafa] border-t border-[#e5e5e5] px-6 pb-6 pt-4 space-y-4">
+        <div className="xl:hidden bg-[#fafafa] border-t border-[#e5e5e5] px-6 pb-6 pt-4 space-y-4">
           <a href="#methodology" onClick={() => setMobileOpen(false)} className="block text-[15px] font-medium text-[#444]">המתודולוגיה</a>
           <a href="#past-whales" onClick={() => setMobileOpen(false)} className="block text-[15px] font-medium text-[#444]">ניצחונות עבר</a>
           <a href="#examples" onClick={() => setMobileOpen(false)} className="block text-[15px] font-medium text-[#444]">הלוויתנים</a>
+          <a href="#geopolitics" onClick={() => setMobileOpen(false)} className="block text-[15px] font-medium text-[#444]">המנח הגיאופוליטי</a>
+          <a href="#hebrew-sovereignty" onClick={() => setMobileOpen(false)} className="block text-[15px] font-medium text-[#444]">ריבונות עברית</a>
+          <a href="#silicon-dome" onClick={() => setMobileOpen(false)} className="block text-[15px] font-medium text-[#444]">כיפת הסיליקון</a>
           <a href="#join" onClick={() => setMobileOpen(false)} className="block text-center text-[14px] font-bold text-[#fafafa] bg-[#1a1a1a] px-5 py-3 rounded">הצטרפו למאמץ</a>
         </div>
       )}

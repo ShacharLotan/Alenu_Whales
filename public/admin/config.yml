@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: main
   commit_messages:
-    create: 'Create {{collection}} “{{slug}}”'
-    update: 'Update {{collection}} “{{slug}}”'
-    delete: 'Delete {{collection}} “{{slug}}”'
-    uploadMedia: 'Upload “{{path}}”'
-    deleteMedia: 'Delete “{{path}}”'
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -16,12 +16,13 @@ collections:
     label: "תוכן האתר"
     files:
       - file: "src/content/data.json"
-        label: "דף הבית - דוגמאות ומתודולוגיה"
+        label: "ניהול תוכן - עלינו"
         name: "homepage"
         fields:
           - {label: "כותרת ראשית", name: "heroTitle", widget: "string"}
           - {label: "כותרת משנה", name: "heroSubtitle", widget: "text"}
-          - label: "מקרי בוחן"
+          
+          - label: "מקרי בוחן (הלוויתנים)"
             name: "examples"
             widget: "list"
             fields:
@@ -29,10 +30,59 @@ collections:
               - {label: "הסטטוס קוו", name: "statusQuo", widget: "text"}
               - {label: "הלוויתן", name: "whale", widget: "text"}
               - {label: "הפתרון", name: "solution", widget: "text"}
-              - {label: "גרף (אופציונלי - חינוך/תחבורה/ביטחון)", name: "chart", widget: "string", required: false}
+              - {label: "גרף (אופציונלי)", name: "chart", widget: "string", required: false}
+              - label: "העמקה (אופציונלי)"
+                name: "expanded"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "כותרת ההעמקה", name: "title", widget: "string"}
+                  - {label: "תוכן ההעמקה", name: "content", widget: "text"}
+                  
           - label: "לוויתני עבר"
             name: "pastWhales"
             widget: "list"
             fields:
               - {label: "כותרת", name: "title", widget: "string"}
               - {label: "תיאור", name: "desc", widget: "text"}
+              - label: "העמקה (אופציונלי)"
+                name: "expanded"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "כותרת ההעמקה", name: "title", widget: "string"}
+                  - {label: "תוכן ההעמקה", name: "content", widget: "text"}
+
+          - label: "גיאופוליטיקה"
+            name: "geopolitics"
+            widget: "object"
+            fields:
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "כותרת קטנה (subtitle)", name: "subtitle", widget: "string"}
+              - {label: "פסקאות", name: "paragraphs", widget: "list", field: {label: "פסקה", name: "paragraph", widget: "text"}}
+              - {label: "ציטוט מרכזי (Pull Quote)", name: "pullQuote", widget: "string", required: false}
+
+          - label: "ריבונות עברית"
+            name: "hebrewSovereignty"
+            widget: "object"
+            fields:
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "כותרת קטנה (subtitle)", name: "subtitle", widget: "string"}
+              - {label: "פסקאות", name: "paragraphs", widget: "list", field: {label: "פסקה", name: "paragraph", widget: "text"}}
+              - {label: "ציטוט מרכזי (Pull Quote)", name: "pullQuote", widget: "string", required: false}
+
+          - label: "כיפת הסיליקון"
+            name: "siliconDome"
+            widget: "object"
+            fields:
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "כותרת קטנה (subtitle)", name: "subtitle", widget: "string"}
+              - {label: "פסקאות", name: "paragraphs", widget: "list", field: {label: "פסקה", name: "paragraph", widget: "text"}}
+              - {label: "ציטוט מרכזי (Pull Quote)", name: "pullQuote", widget: "string", required: false}
+              - label: "ששת תחומי MARQSS"
+                name: "marqss"
+                widget: "list"
+                fields:
+                  - {label: "כותרת תחום", name: "title", widget: "string"}
+                  - {label: "תיאור קצר", name: "desc", widget: "text"}
+                  - {label: "העמקה", name: "expanded", widget: "text"}

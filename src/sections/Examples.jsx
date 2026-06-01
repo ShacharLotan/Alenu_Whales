@@ -2,6 +2,7 @@ import React from 'react';
 import EducationChart from '../components/charts/EducationChart';
 import TransportationChart from '../components/charts/TransportationChart';
 import SecurityChart from '../components/charts/SecurityChart';
+import ExpandableSection from '../components/ExpandableSection';
 import data from '../content/data.json';
 
 const chartsMap = {
@@ -65,6 +66,15 @@ export default function Examples() {
                 <div className="mt-10">
                   {chartsMap[ex.chart]}
                 </div>
+              )}
+
+              {/* Expanded Info */}
+              {ex.expanded && (
+                <ExpandableSection 
+                  title={ex.expanded.title} 
+                  content={ex.expanded.content} 
+                  theme="light" 
+                />
               )}
             </article>
           ))}

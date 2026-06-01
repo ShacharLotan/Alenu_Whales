@@ -1,10 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const sections = [
   { id: 'hero', label: 'פתיח' },
   { id: 'methodology', label: 'המתודולוגיה' },
   { id: 'past-whales', label: 'ניצחונות עבר' },
   { id: 'examples', label: 'הלוויתנים' },
+  { id: 'geopolitics', label: 'גיאופוליטיקה' },
+  { id: 'hebrew-sovereignty', label: 'ריבונות עברית' },
+  { id: 'silicon-dome', label: 'כיפת הסיליקון' },
   { id: 'join', label: 'הצטרפות' },
 ];
 
