@@ -9,10 +9,12 @@ import HebrewSovereignty from './sections/HebrewSovereignty';
 import SiliconDome from './sections/SiliconDome';
 import Footer from './sections/Footer';
 import ProgressBar from './components/ProgressBar';
+import InlineForm from './components/InlineForm';
+import FloatingActions from './components/FloatingActions';
 
 export default function App() {
   return (
-    <div dir="rtl" className="bg-[#fafafa] min-h-screen relative">
+    <div dir="rtl" className="bg-[#fafafa] min-h-screen relative pb-16 xl:pb-0">
       <ProgressBar />
       <Navbar />
       <div id="hero">
@@ -27,6 +29,10 @@ export default function App() {
       <div id="examples">
         <Examples />
       </div>
+      
+      {/* Inline CTA to catch users at peak motivation */}
+      <InlineForm />
+
       <div id="geopolitics">
         <Geopolitics />
       </div>
@@ -36,7 +42,13 @@ export default function App() {
       <div id="silicon-dome">
         <SiliconDome />
       </div>
-      <Footer />
+      
+      {/* Floating UX elements */}
+      <FloatingActions />
+      
+      <div id="footer">
+        <Footer />
+      </div>
     </div>
   );
 }
