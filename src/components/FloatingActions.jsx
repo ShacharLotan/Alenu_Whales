@@ -44,7 +44,7 @@ export default function FloatingActions() {
       {/* Global Share Button (Desktop & Mobile) */}
       <button 
         onClick={handleShare}
-        className="fixed bottom-6 left-6 z-40 bg-white border border-[#e5e5e5] w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-[#1a1a1a] hover:bg-[#fafafa] hover:text-[#FF6B9E] hover:border-[#FF6B9E] transition-all group"
+        className="fixed bottom-24 left-5 xl:bottom-6 xl:left-6 z-40 bg-white border border-[#e5e5e5] w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-[#1a1a1a] hover:bg-[#fafafa] hover:text-[#FF6B9E] hover:border-[#FF6B9E] transition-all group"
         aria-label="שתף את האתר"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

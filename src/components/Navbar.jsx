@@ -13,25 +13,11 @@ const sections = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeIdx, setActiveIdx] = useState(-1);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setScrolled(scrollY > 40);
-      
-      const offset = window.innerHeight / 3;
-      let currentIdx = -1;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i].id);
-        if (el && el.offsetTop <= scrollY + offset) {
-          currentIdx = i;
-          break;
-        }
-      }
-      setActiveIdx(currentIdx);
+      setScrolled(window.scrollY > 40);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -68,25 +54,6 @@ export default function Navbar() {
               <div className={`w-5 h-0.5 bg-[#1a1a1a] transition-transform ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
             </div>
           </button>
-        </div>
-
-        {/* Sub-nav (Desktop & Mobile) when scrolled */}
-        <div className={`w-full bg-white/90 backdrop-blur-md border-b border-[#e5e5e5] overflow-hidden transition-all duration-300 ${scrolled ? 'h-[44px] opacity-100' : 'h-0 opacity-0'}`}>
-          <div className="magazine-wide px-6 h-full flex items-center overflow-x-auto hide-scrollbar whitespace-nowrap relative">
-            <div className="flex gap-6 xl:gap-8 min-w-max mx-auto xl:mx-0 pr-2">
-              {sections.map((sec, i) => (
-                <a
-                  key={`sub-${sec.id}`}
-                  href={`#${sec.id}`}
-                  className={`text-[13px] font-bold transition-colors py-[11px] border-b-2 ${
-                    i === activeIdx ? 'text-[#FF6B9E] border-[#FF6B9E]' : 'text-[#888] border-transparent hover:text-[#1a1a1a]'
-                  }`}
-                >
-                  {sec.label}
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </nav>
 
