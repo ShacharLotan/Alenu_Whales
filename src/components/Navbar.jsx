@@ -6,7 +6,8 @@ const sections = [
   { id: 'examples', label: 'הלוויתנים' },
   { id: 'geopolitics', label: 'גיאופוליטיקה' },
   { id: 'hebrew-sovereignty', label: 'ריבונות עברית' },
-  { id: 'silicon-dome', label: 'כיפת הסיליקון' }
+  { id: 'silicon-dome', label: 'כיפת הסיליקון' },
+  { id: 'rir', label: 'RIR' }
 ];
 
 export default function Navbar() {

@@ -86,3 +86,20 @@ collections:
                   - {label: "כותרת תחום", name: "title", widget: "string"}
                   - {label: "תיאור קצר", name: "desc", widget: "text"}
                   - {label: "העמקה", name: "expanded", widget: "text"}
+
+  - name: "rir"
+    label: "מאמרי RIR (מאמרי אורחים)"
+    label_singular: "מאמר"
+    folder: "src/content/rir"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "כותרת", name: "title", widget: "string"}
+      - {label: "שם הכותב", name: "author", widget: "string", default: "רותם אורג"}
+      - {label: "תאריך", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true}
+      - {label: "תגית תחום", name: "topic", widget: "string", required: false}
+      - {label: "תמונת נושא", name: "image", widget: "image", required: false}
+      - {label: "תקציר (מוצג בכרטיסייה)", name: "excerpt", widget: "text"}
+      - {label: "גוף המאמר", name: "body", widget: "markdown"}
