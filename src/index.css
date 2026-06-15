@@ -26,6 +26,16 @@ body {
   color: #ffffff;
 }
 
+/* Consistent keyboard-focus ring across interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #5CE1E6;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
 /* =============================================
    TYPOGRAPHY
    ============================================= */
@@ -244,6 +254,27 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #fff5f8 0%, #f0fcfe 100%);
 }
 
+/* Subtle radial highlight layered over the media band */
+.rir-media-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 28% 30%, rgba(255, 107, 158, 0.16), transparent 55%),
+    radial-gradient(circle at 78% 75%, rgba(92, 225, 230, 0.18), transparent 55%);
+}
+
+/* Article card lift on hover */
+.rir-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease, border-color 0.3s ease;
+}
+.rir-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.10);
+  border-color: #f0c6d6;
+}
+
 /* Long-form article body (rendered from markdown) */
 .article-body {
   font-size: 18px;
@@ -269,6 +300,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .article-body p {
   color: #2b2b2b;
+}
+/* Drop cap on the opening paragraph */
+.article-body > p:first-of-type::first-letter {
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: #C73E6E;
+  float: right;
+  line-height: 0.8;
+  margin-left: 0.55rem;
+  margin-top: 0.3rem;
 }
 .article-body strong {
   color: #1a1a1a;
@@ -309,6 +350,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .article-body { font-size: 16px; }
   .article-body h2 { font-size: 1.45rem; }
+  .article-body > p:first-of-type::first-letter { font-size: 2.8rem; }
 }
 
 /* =============================================

@@ -14,11 +14,16 @@ function parse(raw) {
   return { data: yaml.load(m[1]) || {}, body: m[2].trim() };
 }
 
+function readingMinutes(body) {
+  const words = String(body).trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 export const articles = Object.entries(modules)
   .map(([path, raw]) => {
     const slug = path.split('/').pop().replace(/\.md$/, '');
     const { data, body } = parse(raw);
-    return { slug, body, ...data };
+    return { slug, body, readingTime: readingMinutes(body), ...data };
   })
   // Newest first
   .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));

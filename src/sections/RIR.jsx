@@ -27,28 +27,35 @@ export default function RIR() {
             <Link
               key={a.slug}
               to={`/rir/${a.slug}`}
-              className="group whale-card rounded-lg overflow-hidden flex flex-col fade-in-up"
+              className="group rir-card whale-card rounded-xl overflow-hidden flex flex-col fade-in-up"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               {/* Media */}
-              <div className="h-44 flex items-center justify-center rir-media">
+              <div className="relative h-48 flex items-center justify-center rir-media overflow-hidden">
+                <div className="rir-media-glow" />
                 {a.image && (
-                  <img src={a.image} alt="" className="h-24 object-contain opacity-90 transition-transform duration-500 group-hover:scale-110" />
+                  <img src={a.image} alt="" className="relative h-28 object-contain opacity-90 transition-transform duration-500 ease-out group-hover:scale-[1.12]" />
+                )}
+                {a.topic && (
+                  <span className="absolute top-4 right-4 tag tag-pink shadow-sm">{a.topic}</span>
                 )}
               </div>
 
               {/* Body */}
-              <div className="p-6 flex flex-col flex-1">
-                {a.topic && <span className="tag tag-pink mb-3 self-start">{a.topic}</span>}
+              <div className="p-6 md:p-7 flex flex-col flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-[#1a1a1a] mb-3 leading-snug group-hover:text-[#C73E6E] transition-colors">
                   {a.title}
                 </h3>
-                <p className="text-[15px] text-[#666] leading-relaxed mb-5 flex-1">
+                <p className="text-[15px] text-[#666] leading-relaxed mb-6 flex-1">
                   {a.excerpt}
                 </p>
                 <div className="flex items-center justify-between text-[13px] text-[#888] border-t border-[#eee] pt-4">
                   <span className="font-bold text-[#444]">{a.author}</span>
-                  <span>{formatDate(a.date)}</span>
+                  <span className="flex items-center gap-1.5">
+                    {formatDate(a.date)}
+                    <span className="text-[#ddd]">•</span>
+                    {a.readingTime} דק׳ קריאה
+                  </span>
                 </div>
                 <span className="text-[13px] font-bold text-[#C73E6E] mt-4 inline-flex items-center gap-1">
                   קראו את המאמר
